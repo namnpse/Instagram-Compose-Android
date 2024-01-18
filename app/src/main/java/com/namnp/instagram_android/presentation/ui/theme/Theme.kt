@@ -1,4 +1,4 @@
-package com.namnp.instagram_android.ui.theme
+package com.namnp.instagram_android.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
