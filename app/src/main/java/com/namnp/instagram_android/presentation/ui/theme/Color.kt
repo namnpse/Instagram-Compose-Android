@@ -1,6 +1,8 @@
 package com.namnp.instagram_android.presentation.ui.theme
 
 import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.TextFieldColors
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
@@ -14,10 +16,27 @@ val Pink40 = Color(0xFF7D5260)
 
 val Blue200 = Color(0xFF3797EF)
 val Black200 = Color(0xFF262626)
-val Grey100 = Color(0x66000000)
+val Black400 = Color(0x66000000)
+val Black500 = Color(0xFF262626)
 val Grey200 = Color(0x4A3C3C43)
+val Grey100 = Color(0xFFFAFAFA)
 
 
-val ColorScheme.blue: Color
+val ColorScheme.backgroundColor: Color
     @Composable
-    get() = Blue200
+    get() = Color.White
+
+val textFieldColor: TextFieldColors
+    @Composable
+    get() = TextFieldDefaults.colors(
+        focusedTextColor = Black200,
+        unfocusedTextColor = Black200,
+        disabledTextColor = Color.Transparent,
+        focusedContainerColor = Grey100,
+        unfocusedContainerColor = Grey100,
+        focusedIndicatorColor = Color.Transparent,
+        unfocusedIndicatorColor = Color.Transparent,
+        disabledIndicatorColor = Color.Transparent,
+        focusedLabelColor = Blue200,
+        unfocusedLabelColor = Color(0x33000000)
+    )
