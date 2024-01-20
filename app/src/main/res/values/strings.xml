@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Instagram-Compose-Android</string>
+    <string name="log_in">Log in</string>
+    <string name="switch_accounts">Switch accounts</string>
+    <string name="dont_have_an_account">Don’t have an account?</string>
+    <string name="sign_up">Sign up.</string>
+    <string name="login_with_facebook">Log in with Facebook</string>
+    <string name="or">or</string>
+    <string name="instagram_vs_facebook">Instagram от Facebook</string>
 </resources>
