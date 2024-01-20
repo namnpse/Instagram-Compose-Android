@@ -15,22 +15,19 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.namnp.instagram_android.R
-import com.namnp.instagram_android.presentation.ui.theme.Black200
-import com.namnp.instagram_android.presentation.ui.theme.Blue200
-import com.namnp.instagram_android.presentation.ui.theme.Grey200
+import com.namnp.instagram_android.presentation.ui.spacing
+import com.namnp.instagram_android.presentation.ui.theme.*
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
 
 @Composable
@@ -44,7 +41,7 @@ fun LoginScreen() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 32.dp),
+                .padding(top = MaterialTheme.spacing.large),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -63,19 +60,14 @@ fun LoginScreen() {
                 contentDescription = null
             )
             Text(
-                modifier = Modifier.padding(12.dp),
-                text = "jacob_w",
-                style = TextStyle(
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight(600),
-                    color = Black200,
-                    textAlign = TextAlign.Center,
-                )
+                modifier = Modifier.padding(MaterialTheme.spacing.overSmall),
+                text = "namjr_bryan",
+                style = text600_14.copy(color = Black200)
             )
             Button(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 32.dp),
+                    .padding(horizontal = MaterialTheme.spacing.large),
                 shape = RoundedCornerShape(10),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Blue200
@@ -84,27 +76,17 @@ fun LoginScreen() {
             ) {
                 Text(
                     modifier = Modifier.padding(6.dp),
-                    text = "Log in",
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight(600),
-                    color = Color.White,
-                    textAlign = TextAlign.Center,
+                    text = stringResource(id = R.string.log_in),
+                    style = text600_14
                 )
             }
             Spacer(modifier = Modifier.height(30.dp))
             Text(
-                text = "Switch accounts",
-                style = TextStyle(
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight(600),
-                    color = Blue200,
-                    textAlign = TextAlign.Center,
-                )
+                text = stringResource(id = R.string.switch_accounts),
+                style = text600_14.copy(color = Blue200)
             )
         }
-        Column(
-
-        ) {
+        Column {
             Divider(color = Grey200, thickness = 1.dp)
             Row(
                 modifier = Modifier
@@ -113,23 +95,15 @@ fun LoginScreen() {
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Don’t have an account?",
-                    style = TextStyle(
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight(400),
-                        color = Color(0x66000000),
-                        textAlign = TextAlign.Center,
-                    )
+                    text = stringResource(id = R.string.dont_have_an_account),
+                    style = textNormal_12
+                        .copy(color = Grey100, fontWeight = FontWeight(400))
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = "Sign up.",
-                    style = TextStyle(
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight(600),
-                        color = Color(0xFF262626),
-                        textAlign = TextAlign.Center,
-                    )
+                    text = stringResource(id = R.string.sign_up),
+                    style = textNormal_12
+                        .copy(color = Black200, fontWeight = FontWeight(600))
                 )
             }
         }
