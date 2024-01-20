@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -88,7 +89,11 @@ fun InputAccount(
                 else Icons.Filled.VisibilityOff
                 val description = if (showPassword) "Hide password" else "Show password"
                 IconButton(onClick = onToggleShowPassword) {
-                    Icon(imageVector = image, description)
+                    Icon(
+                        imageVector = image,
+                        description,
+                        tint = if(isPasswordFocus) Blue200 else LocalContentColor.current,
+                    )
                 }
             }
         )

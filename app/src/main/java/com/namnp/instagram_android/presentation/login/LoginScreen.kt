@@ -6,9 +6,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,7 +15,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIos
@@ -26,7 +23,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -46,12 +42,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.presentation.login.composables.InputAccount
+import com.namnp.instagram_android.presentation.login.composables.SignupSuggestion
 import com.namnp.instagram_android.presentation.ui.spacing
-import com.namnp.instagram_android.presentation.ui.theme.Black200
 import com.namnp.instagram_android.presentation.ui.theme.Black400
 import com.namnp.instagram_android.presentation.ui.theme.Black500
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
-import com.namnp.instagram_android.presentation.ui.theme.Grey200
+import com.namnp.instagram_android.presentation.ui.theme.Gray200
+import com.namnp.instagram_android.presentation.ui.theme.Grey300
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
 import com.namnp.instagram_android.presentation.ui.theme.text600_14
 import com.namnp.instagram_android.presentation.ui.theme.textNormal_12
@@ -78,9 +75,7 @@ fun LoginScreen() {
             tint = Black500
         )
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = MaterialTheme.spacing.large),
+            modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -118,7 +113,7 @@ fun LoginScreen() {
             Button(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = MaterialTheme.spacing.large),
+                    .padding(horizontal = MaterialTheme.spacing.medium),
                 shape = RoundedCornerShape(10),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Blue200,
@@ -159,40 +154,28 @@ fun LoginScreen() {
             ) {
                 Divider(
                     modifier = Modifier.weight(1f),
-                    color = Grey200,
+                    color = Gray200,
                     thickness = 1.dp,
                 )
                 Text(
-                    modifier = Modifier.padding(horizontal = 30.dp, vertical = 40.dp),
+                    modifier = Modifier.padding(horizontal = 30.dp, vertical = 30.dp),
                     text = stringResource(id = R.string.or).uppercase(),
                     style = text600_14.copy(color = Black400)
                 )
                 Divider(
                     modifier = Modifier.weight(1f),
-                    color = Grey200,
+                    color = Gray200,
                     thickness = 1.dp,
                 )
             }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Text(
-                    text = stringResource(id = R.string.dont_have_an_account),
-                    style = textNormal_12
-                        .copy(color = Black400, fontWeight = FontWeight(400))
-                )
-                Spacer(modifier = Modifier.width(4.dp))
-                Text(
-                    text = stringResource(id = R.string.sign_up),
-                    style = textNormal_12
-                        .copy(color = Blue200, fontWeight = FontWeight(600))
-                )
-            }
+            SignupSuggestion(
+                onSignupClick = {
+
+                }
+            )
         }
         Column {
-            Divider(color = Grey200, thickness = 1.dp)
+            Divider(color = Gray200, thickness = 1.dp)
             Text(
                 modifier = Modifier
                     .fillMaxWidth()
