@@ -64,7 +64,7 @@ fun WelcomeScreen() {
             Text(
                 modifier = Modifier.padding(MaterialTheme.spacing.medium),
                 text = "namjr_bryan",
-                style = text600_14.copy(color = Black200, fontSize = 20.sp)
+                style = text600_14.copy(color = Black200, fontSize = 18.sp)
             )
             Button(
                 modifier = Modifier
@@ -107,7 +107,6 @@ fun WelcomeScreen() {
         }
     }
 }
-
 
 @Composable
 @Preview(showBackground = true)

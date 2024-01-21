@@ -1,5 +1,6 @@
 package com.namnp.instagram_android.presentation.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
@@ -22,6 +23,12 @@ val Grey300 = Color(0x4A3C3C43)
 val Gray200 = Color(0x33000000)
 val Grey100 = Color(0xFFFAFAFA)
 
+@Composable
+fun ColorScheme.statusBarColor(
+    isDarkTheme: Boolean = isSystemInDarkTheme(),
+): Color {
+    return if (!isDarkTheme) Color.White else Color.Black
+}
 
 val ColorScheme.backgroundColor: Color
     @Composable
