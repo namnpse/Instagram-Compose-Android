@@ -4,4 +4,14 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
 }
 
+buildscript {
+    repositories {
+        google()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.49")
+    }
+}
+
 val composeVersion by extra { "1.5.4" }

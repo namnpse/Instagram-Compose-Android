@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,6 +17,7 @@ import com.namnp.instagram_android.R
 import com.namnp.instagram_android.presentation.ui.theme.Black400
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
 import com.namnp.instagram_android.presentation.ui.theme.textNormal_12
+import com.namnp.instagram_android.presentation.ui.theme.textSecondary
 
 @Composable
 fun SignupSuggestion(
@@ -30,7 +32,10 @@ fun SignupSuggestion(
         Text(
             text = stringResource(id = R.string.dont_have_an_account),
             style = textNormal_12
-                .copy(color = Black400, fontWeight = FontWeight(400))
+                .copy(
+                    color = MaterialTheme.colorScheme.textSecondary,
+                    fontWeight = FontWeight(400),
+                )
         )
         Spacer(modifier = Modifier.width(4.dp))
         Text(

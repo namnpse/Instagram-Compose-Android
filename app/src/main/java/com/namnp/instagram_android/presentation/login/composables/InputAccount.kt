@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -21,13 +22,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
+import com.namnp.instagram_android.presentation.ui.theme.textFieldBorder
 import com.namnp.instagram_android.presentation.ui.theme.textFieldColor
+import com.namnp.instagram_android.presentation.ui.theme.textFieldHint
 
 @Composable
 fun InputAccount(
@@ -49,15 +51,16 @@ fun InputAccount(
                 .padding(vertical = 4.dp, horizontal = 16.dp)
                 .border(
                     width = 1.dp,
-                    color = if (isUsernameFocus) Blue200 else Color(0x1A000000),
+                    color = if (isUsernameFocus) Blue200 else MaterialTheme.colorScheme.textFieldBorder,
                     shape = RoundedCornerShape(8.dp),
                 )
                 .onFocusChanged {
                     isUsernameFocus = it.hasFocus
+                    isPasswordFocus = !it.hasFocus
                 },
-            colors = textFieldColor,
+            colors = MaterialTheme.colorScheme.textFieldColor,
             label = {
-                Text(text = "Username")
+                Text(text = "Username", color = MaterialTheme.colorScheme.textFieldHint)
             },
             /*         trailingIcon = {
                          Icon(Icons.Filled.AccountCircle, "", tint = Blue200)
@@ -71,15 +74,16 @@ fun InputAccount(
                 .padding(vertical = 4.dp, horizontal = 16.dp)
                 .border(
                     width = 1.dp,
-                    color = if (isPasswordFocus) Blue200 else Color(0x1A000000),
+                    color = if (isPasswordFocus) Blue200 else MaterialTheme.colorScheme.textFieldBorder,
                     shape = RoundedCornerShape(8.dp),
                 )
                 .onFocusChanged {
                     isPasswordFocus = it.hasFocus
+                    isUsernameFocus = !it.hasFocus
                 },
-            colors = textFieldColor,
+            colors = MaterialTheme.colorScheme.textFieldColor,
             label = {
-                Text(text = "Password")
+                Text(text = "Password", color = MaterialTheme.colorScheme.textFieldHint)
             },
             visualTransformation = if (showPassword) VisualTransformation.None else PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
@@ -92,7 +96,7 @@ fun InputAccount(
                     Icon(
                         imageVector = image,
                         description,
-                        tint = if(isPasswordFocus) Blue200 else LocalContentColor.current,
+                        tint = if (isPasswordFocus) Blue200 else LocalContentColor.current,
                     )
                 }
             }
