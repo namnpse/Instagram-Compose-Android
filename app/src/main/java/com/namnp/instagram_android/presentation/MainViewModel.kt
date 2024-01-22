@@ -47,4 +47,14 @@ constructor(
             _themeState.value = ThemeState(theme = if (isDarkTheme) Theme.Dark else Theme.Light)
         }
     }
+
+    fun saveThemeState() {
+        val isDarkTheme = themeState.value.theme == Theme.Dark
+        viewModelScope.launch(Dispatchers.IO) {
+            useCases.setDataStoreValueUseCase(
+                key = Constants.PREFERENCES_KEY_DARK_THEME,
+                value = isDarkTheme.toString()
+            )
+        }
+    }
 }

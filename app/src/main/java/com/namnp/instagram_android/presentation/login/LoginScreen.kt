@@ -42,6 +42,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.presentation.MainViewModel
 import com.namnp.instagram_android.presentation.login.composables.InputAccount
@@ -58,7 +59,8 @@ import com.namnp.instagram_android.utils.Theme
 
 @Composable
 fun LoginScreen(
-    mainViewModel: MainViewModel = hiltViewModel()
+    mainViewModel: MainViewModel = hiltViewModel(),
+    navController: NavHostController? = null,
 ) {
     var showPassword by remember { mutableStateOf(false) }
     var username by remember { mutableStateOf("") }
@@ -78,7 +80,7 @@ fun LoginScreen(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
                 .clickable {
-
+                    navController?.navigateUp()
                 },
             imageVector = Icons.Filled.ArrowBackIos,
             contentDescription = null,

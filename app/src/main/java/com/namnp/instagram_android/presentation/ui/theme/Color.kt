@@ -2,6 +2,7 @@ package com.namnp.instagram_android.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -27,11 +28,8 @@ val Grey200 = Color(0x33000000)
 val Grey100 = Color(0xFFFAFAFA)
 
 @Composable
-fun ColorScheme.statusBarColor(
-    isDarkTheme: Boolean = isSystemInDarkTheme(),
-): Color {
-    return if (!isDarkTheme) Color.White else Color.Black
-}
+fun ColorScheme.statusBarColor(darkTheme: Boolean): Color =
+    if (!darkTheme) Color.White else Color.Black
 
 val ColorScheme.backgroundColor: Color
     @Composable
@@ -53,6 +51,10 @@ val ColorScheme.textFieldHint
     @Composable
     get() = if (isLight) Grey200 else Color(0x99FFFFFF)
 
+val ColorScheme.textPrimary
+    @Composable
+    get() = if (isLight) Black200 else White
+
 val ColorScheme.textSecondary
     @Composable
     get() = if (isLight) Black400 else Grey400
@@ -60,8 +62,8 @@ val ColorScheme.textSecondary
 val ColorScheme.textFieldColor: TextFieldColors
     @Composable
     get() = TextFieldDefaults.colors(
-        focusedTextColor = if (isLight) Black200 else White,
-        unfocusedTextColor = if (isLight) Black200 else White,
+        focusedTextColor = MaterialTheme.colorScheme.textPrimary,
+        unfocusedTextColor = MaterialTheme.colorScheme.textPrimary,
         disabledTextColor = Color.Transparent,
         focusedContainerColor = if (isLight) Grey100 else Color(0xFF121212),
         unfocusedContainerColor = if (isLight) Grey100 else Color(0xFF121212),
