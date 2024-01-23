@@ -36,7 +36,6 @@ import com.namnp.instagram_android.presentation.MainViewModel
 import com.namnp.instagram_android.presentation.login.composables.SignupSuggestion
 import com.namnp.instagram_android.presentation.navigation.Screen
 import com.namnp.instagram_android.presentation.ui.spacing
-import com.namnp.instagram_android.presentation.ui.theme.Black200
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
 import com.namnp.instagram_android.presentation.ui.theme.Grey300
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
@@ -100,7 +99,6 @@ fun WelcomeScreen(
                 shape = RoundedCornerShape(5.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Blue200,
-                    disabledContainerColor = Blue200.copy(alpha = 0.5f)
                 ),
                 enabled = true,
                 onClick = {

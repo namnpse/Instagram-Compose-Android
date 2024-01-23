@@ -47,6 +47,7 @@ import com.namnp.instagram_android.R
 import com.namnp.instagram_android.presentation.MainViewModel
 import com.namnp.instagram_android.presentation.login.composables.InputAccount
 import com.namnp.instagram_android.presentation.login.composables.SignupSuggestion
+import com.namnp.instagram_android.presentation.navigation.Screen
 import com.namnp.instagram_android.presentation.ui.spacing
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
 import com.namnp.instagram_android.presentation.ui.theme.Grey200
@@ -139,10 +140,18 @@ fun LoginScreen(
                 shape = RoundedCornerShape(10),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Blue200,
-                    disabledContainerColor = Blue200.copy(alpha = 0.5f)
+//                    disabledContainerColor = Blue200.copy(alpha = 0.5f)
                 ),
                 enabled = loginEnabled,
-                onClick = {}
+                onClick = {
+                    navController?.navigate(Screen.MainApp.route) {
+     /*                   popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true
+                            saveState = true
+                        }
+                        launchSingleTop = true*/
+                    }
+                }
             ) {
                 Text(
                     modifier = Modifier.padding(6.dp),
