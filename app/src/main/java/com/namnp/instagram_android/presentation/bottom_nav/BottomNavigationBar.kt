@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package com.namnp.instagram_android.presentation.bottom_nav
 
 import androidx.compose.foundation.layout.Box
@@ -12,6 +10,7 @@ import androidx.compose.material.icons.filled.AddBox
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.RippleAlpha
 import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.material3.Badge
@@ -26,6 +25,7 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -51,7 +51,7 @@ import com.namnp.instagram_android.presentation.ui.theme.Grey200
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarIndicatorColor
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarSelectedIconColor
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarUnselectedIconColor
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainApp(
     mainViewModel: MainViewModel = hiltViewModel(),
@@ -161,6 +161,7 @@ private object NoRippleTheme : RippleTheme {
     override fun rippleAlpha(): RippleAlpha = RippleAlpha(0.0f, 0.0f, 0.0f, 0.0f)
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BottomNavigationBar(
     modifier: Modifier = Modifier,
@@ -178,7 +179,7 @@ fun BottomNavigationBar(
         mutableIntStateOf(initialIndex)
     }
     val color = MaterialTheme.colorScheme.bottomBarIndicatorColor.copy(alpha = 0.1f)
-//    CompositionLocalProvider(LocalRippleTheme provides NoRippleTheme) {
+    CompositionLocalProvider(LocalRippleTheme provides NoRippleTheme) {
         Column {
             Divider(color = Grey200.copy(alpha = 0.3f), thickness = 0.5.dp)
             NavigationBar(
@@ -227,7 +228,7 @@ fun BottomNavigationBar(
                         }
                     )
                 }
-//            }
+            }
         }
     }
 }
