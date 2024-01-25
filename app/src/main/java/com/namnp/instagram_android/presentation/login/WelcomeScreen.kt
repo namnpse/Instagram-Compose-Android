@@ -39,7 +39,7 @@ import com.namnp.instagram_android.presentation.ui.spacing
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
 import com.namnp.instagram_android.presentation.ui.theme.Grey300
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
-import com.namnp.instagram_android.presentation.ui.theme.backIcon
+import com.namnp.instagram_android.presentation.ui.theme.colorPrimary
 import com.namnp.instagram_android.presentation.ui.theme.text600_14
 import com.namnp.instagram_android.presentation.ui.theme.textPrimary
 import com.namnp.instagram_android.utils.Theme
@@ -77,7 +77,7 @@ fun WelcomeScreen(
             Image(
                 painter = painterResource(id = R.drawable.ic_instagram_logo),
                 contentDescription = null,
-                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.backIcon)
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.colorPrimary)
             )
             Spacer(modifier = Modifier.height(52.dp))
             Image(

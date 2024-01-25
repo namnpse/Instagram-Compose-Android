@@ -1,6 +1,5 @@
 package com.namnp.instagram_android.presentation.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextFieldColors
@@ -19,6 +18,7 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 val Blue200 = Color(0xFF3797EF)
+val Blue300 = Color(0xFF3897F0)
 val Black200 = Color(0xFF262626)
 val Black300 = Color(0xB2121212)
 val Black400 = Color(0x66000000)
@@ -41,7 +41,7 @@ val ColorScheme.isLight
     @Composable
     get() = this.background.luminance() > 0.5
 
-val ColorScheme.backIcon
+val ColorScheme.colorPrimary
     @Composable
     get() = if (isLight) Black200 else White
 
@@ -73,6 +73,10 @@ val ColorScheme.bottomBarIndicatorColor
     @Composable
 //    get() = if (isLight) Color(0x00FAFAFA) else Color(0xFF121212)
     get() = if (isLight) Color(0x00FAFAFA) else Color.Black.copy(alpha = 0.1f)
+
+val ColorScheme.unselectedDotIndicatorColor
+    @Composable
+    get() = if (isLight) Grey300.copy(alpha = 0.2f) else Grey300.copy(alpha = 1f)
 
 val ColorScheme.textFieldColor: TextFieldColors
     @Composable

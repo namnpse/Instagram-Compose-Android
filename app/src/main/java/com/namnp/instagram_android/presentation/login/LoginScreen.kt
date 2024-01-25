@@ -52,7 +52,7 @@ import com.namnp.instagram_android.presentation.ui.spacing
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
 import com.namnp.instagram_android.presentation.ui.theme.Grey200
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
-import com.namnp.instagram_android.presentation.ui.theme.backIcon
+import com.namnp.instagram_android.presentation.ui.theme.colorPrimary
 import com.namnp.instagram_android.presentation.ui.theme.text600_14
 import com.namnp.instagram_android.presentation.ui.theme.textNormal_12
 import com.namnp.instagram_android.presentation.ui.theme.textSecondary
@@ -85,7 +85,7 @@ fun LoginScreen(
                 },
             imageVector = Icons.Filled.ArrowBackIos,
             contentDescription = null,
-            tint = MaterialTheme.colorScheme.backIcon
+            tint = MaterialTheme.colorScheme.colorPrimary
         )
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -104,7 +104,7 @@ fun LoginScreen(
             Image(
                 painter = painterResource(id = R.drawable.ic_instagram_logo),
                 contentDescription = null,
-                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.backIcon)
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.colorPrimary)
             )
             Spacer(modifier = Modifier.height(40.dp))
             InputAccount(
