@@ -69,6 +69,7 @@ fun InstagramComposeAndroidTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = content
+        shapes = Shapes,
+        content = content,
     )
 }

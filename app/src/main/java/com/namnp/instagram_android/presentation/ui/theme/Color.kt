@@ -20,11 +20,14 @@ val Pink40 = Color(0xFF7D5260)
 
 val Blue200 = Color(0xFF3797EF)
 val Black200 = Color(0xFF262626)
+val Black300 = Color(0xB2121212)
 val Black400 = Color(0x66000000)
 val Grey400 = Color(0x99FFFFFF)
 val Grey300 = Color(0x4A3C3C43)
 val Grey200 = Color(0x33000000)
 val Grey100 = Color(0xFFFAFAFA)
+val White400 = Color(0xFFF9F9F9)
+
 
 @Composable
 fun ColorScheme.statusBarColor(darkTheme: Boolean): Color =

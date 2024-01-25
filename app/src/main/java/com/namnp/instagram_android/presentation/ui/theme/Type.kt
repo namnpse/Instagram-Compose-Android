@@ -1,6 +1,8 @@
 package com.namnp.instagram_android.presentation.ui.theme
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -57,3 +59,12 @@ val textNormal_12 = TextStyle(
     textAlign = TextAlign.Center,
     letterSpacing = 0.5.sp
 )
+
+val textNormal_13
+    @Composable
+    get() = TextStyle(
+        fontSize = 13.sp,
+        color = MaterialTheme.colorScheme.textPrimary,
+        textAlign = TextAlign.Center,
+        letterSpacing = 0.5.sp
+    )

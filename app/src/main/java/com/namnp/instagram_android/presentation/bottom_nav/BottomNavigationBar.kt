@@ -123,7 +123,7 @@ fun Navigation(
         composable(route = Screen.HomeScreen.route) {
             HomeScreen(
 //                navController = navController,
-                mainViewModel = mainViewModel,
+//                mainViewModel = mainViewModel,
             )
         }
         composable(route = Screen.SearchScreen.route) {
