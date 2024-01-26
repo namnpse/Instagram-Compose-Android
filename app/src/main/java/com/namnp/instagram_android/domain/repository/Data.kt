@@ -36,7 +36,7 @@ val searchSuggestions = listOf(
     SearchSuggestion(
         id = 1,
         title = "IGTV",
-        icon = R.drawable.ic_search_tv,
+        icon = R.drawable.ic_seach_tv,
     ),
     SearchSuggestion(
         id = 2,

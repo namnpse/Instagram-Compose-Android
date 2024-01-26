@@ -22,6 +22,8 @@ val Blue300 = Color(0xFF3897F0)
 val Black200 = Color(0xFF262626)
 val Black300 = Color(0xB2121212)
 val Black400 = Color(0x66000000)
+val Grey900 = Color(0x26FFFFFF)
+val Grey800 = Color(0xFF8E8E93)
 val Grey700 = Color(0x2E3C3C43)
 val Grey600 = Color(0x1F767680)
 val Grey500 = Color(0x993C3C43)
@@ -80,6 +82,14 @@ val ColorScheme.bottomBarIndicatorColor
 val ColorScheme.unselectedDotIndicatorColor
     @Composable
     get() = if (isLight) Grey300.copy(alpha = 0.2f) else Grey300.copy(alpha = 1f)
+
+val ColorScheme.primarySearchColor
+    @Composable
+    get() = if (isLight) Grey500 else Grey800
+
+val ColorScheme.borderColor
+    @Composable
+    get() = if (isLight) Grey700 else Grey900
 
 val ColorScheme.textFieldColor: TextFieldColors
     @Composable
