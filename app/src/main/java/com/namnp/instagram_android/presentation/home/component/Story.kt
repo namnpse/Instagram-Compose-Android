@@ -23,14 +23,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.namnp.instagram_android.R
+import com.namnp.instagram_android.domain.model.User
 import com.namnp.instagram_android.presentation.ui.theme.textNormal_12
 import com.namnp.instagram_android.presentation.ui.theme.textPrimary
 
 @Composable
 fun Story(
     modifier: Modifier = Modifier,
-    index: Int,
+    userStory: User,
 ) {
     Column(
         modifier = modifier
@@ -65,7 +65,7 @@ fun Story(
                 contentAlignment = Alignment.Center,
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.img_rounded_avatar),
+                    painter = painterResource(id = userStory.avatar),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
@@ -79,7 +79,7 @@ fun Story(
                 )
 
             }
-            if (index == 1) Box(
+            if (userStory.isLive) Box(
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .padding(top = 46.dp)
@@ -108,9 +108,9 @@ fun Story(
                 )
             }
         }
-        if (index != 1) Spacer(modifier = Modifier.height(4.dp))
+        if (!userStory.isLive) Spacer(modifier = Modifier.height(4.dp))
         Text(
-            text = if (index == 0) "Your Story" else "namnpse",
+            text = userStory.name,
             style = textNormal_12.copy(
                 color = MaterialTheme.colorScheme.textPrimary,
             )
