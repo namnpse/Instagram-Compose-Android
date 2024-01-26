@@ -84,7 +84,7 @@ fun Story(
                     .align(Alignment.BottomCenter)
                     .padding(top = 46.dp)
                     .clip(RoundedCornerShape(3.dp))
-                    .background(Color.White)
+                    .background(MaterialTheme.colorScheme.background)
                     .padding(2.dp)
                     .clip(RoundedCornerShape(3.dp)),
             ) {
