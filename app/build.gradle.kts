@@ -76,6 +76,7 @@ dependencies {
 
     // System UI Controller - Accompanist
     implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanist_version")
+    implementation("com.google.accompanist:accompanist-pager:0.22.0-rc")
 
     // Dagger - Hilt
     implementation("com.google.dagger:hilt-android:2.49")

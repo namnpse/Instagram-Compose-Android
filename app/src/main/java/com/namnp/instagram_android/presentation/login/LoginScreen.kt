@@ -47,11 +47,12 @@ import com.namnp.instagram_android.R
 import com.namnp.instagram_android.presentation.MainViewModel
 import com.namnp.instagram_android.presentation.login.composables.InputAccount
 import com.namnp.instagram_android.presentation.login.composables.SignupSuggestion
+import com.namnp.instagram_android.presentation.navigation.Screen
 import com.namnp.instagram_android.presentation.ui.spacing
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
 import com.namnp.instagram_android.presentation.ui.theme.Grey200
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
-import com.namnp.instagram_android.presentation.ui.theme.backIcon
+import com.namnp.instagram_android.presentation.ui.theme.colorPrimary
 import com.namnp.instagram_android.presentation.ui.theme.text600_14
 import com.namnp.instagram_android.presentation.ui.theme.textNormal_12
 import com.namnp.instagram_android.presentation.ui.theme.textSecondary
@@ -84,7 +85,7 @@ fun LoginScreen(
                 },
             imageVector = Icons.Filled.ArrowBackIos,
             contentDescription = null,
-            tint = MaterialTheme.colorScheme.backIcon
+            tint = MaterialTheme.colorScheme.colorPrimary
         )
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -103,7 +104,7 @@ fun LoginScreen(
             Image(
                 painter = painterResource(id = R.drawable.ic_instagram_logo),
                 contentDescription = null,
-                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.backIcon)
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.colorPrimary)
             )
             Spacer(modifier = Modifier.height(40.dp))
             InputAccount(
@@ -139,10 +140,18 @@ fun LoginScreen(
                 shape = RoundedCornerShape(10),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Blue200,
-                    disabledContainerColor = Blue200.copy(alpha = 0.5f)
+//                    disabledContainerColor = Blue200.copy(alpha = 0.5f)
                 ),
                 enabled = loginEnabled,
-                onClick = {}
+                onClick = {
+                    navController?.navigate(Screen.MainApp.route) {
+     /*                   popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true
+                            saveState = true
+                        }
+                        launchSingleTop = true*/
+                    }
+                }
             ) {
                 Text(
                     modifier = Modifier.padding(6.dp),
