@@ -19,6 +19,7 @@ val Pink40 = Color(0xFF7D5260)
 
 val Blue200 = Color(0xFF3797EF)
 val Blue300 = Color(0xFF3897F0)
+val Black100 = Color(0x66000000)
 val Black200 = Color(0xFF262626)
 val Black300 = Color(0xB2121212)
 val Black400 = Color(0x66000000)
@@ -31,6 +32,7 @@ val Grey400 = Color(0x99FFFFFF)
 val Grey300 = Color(0x4A3C3C43)
 val Grey200 = Color(0x33000000)
 val Grey100 = Color(0xFFFAFAFA)
+val LightGrey = Color(0xFFEDEDED)
 val White400 = Color(0xFFF9F9F9)
 
 
@@ -90,6 +92,14 @@ val ColorScheme.primarySearchColor
 val ColorScheme.borderColor
     @Composable
     get() = if (isLight) Grey700 else Grey900
+
+val ColorScheme.selectedTabBar
+    @Composable
+    get() = if (isLight) Black200 else White400
+
+val ColorScheme.unselectedTabBar
+    @Composable
+    get() = if (isLight) Black400 else Grey400
 
 val ColorScheme.textFieldColor: TextFieldColors
     @Composable

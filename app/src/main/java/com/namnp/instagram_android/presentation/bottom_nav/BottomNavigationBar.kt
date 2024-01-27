@@ -196,8 +196,10 @@ fun BottomNavigationBar(
                     NavigationBarItem(
                         selected = selected,
                         onClick = {
-                            selectedItemIndex = index
-                            onItemClick(item)
+                            if(index != selectedItemIndex){
+                                selectedItemIndex = index
+                                onItemClick(item)
+                            }
                         },
                         alwaysShowLabel = false,
                         colors = NavigationBarItemDefaults.colors(

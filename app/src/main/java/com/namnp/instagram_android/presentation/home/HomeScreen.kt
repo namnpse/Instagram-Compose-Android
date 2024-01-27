@@ -1,6 +1,5 @@
 package com.namnp.instagram_android.presentation.home
 
-import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -21,12 +19,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.domain.repository.userStories
 import com.namnp.instagram_android.presentation.MainViewModel
+import com.namnp.instagram_android.presentation.common.VerticalDivider
 import com.namnp.instagram_android.presentation.home.component.HomeScreenHeader
 import com.namnp.instagram_android.presentation.home.component.NewFeedBody
 import com.namnp.instagram_android.presentation.home.component.NewFeedComments
 import com.namnp.instagram_android.presentation.home.component.NewFeedHeader
 import com.namnp.instagram_android.presentation.home.component.Story
-import com.namnp.instagram_android.presentation.ui.theme.Grey200
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
 
 @Composable
@@ -40,12 +38,9 @@ fun HomeScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         HomeScreenHeader()
-        Divider(
+        VerticalDivider(
             modifier = Modifier
-                .fillMaxWidth()
                 .padding(vertical = 8.dp),
-            color = Grey200,
-            thickness = 0.6.dp,
         )
         LazyRow(
             modifier = Modifier
@@ -55,12 +50,9 @@ fun HomeScreen(
                 Story(userStory = userStory)
             }
         }
-        Divider(
+        VerticalDivider(
             modifier = Modifier
-                .fillMaxWidth()
                 .padding(top = 8.dp),
-            color = Grey200,
-            thickness = 0.6.dp,
         )
         LazyColumn(
             modifier = Modifier.fillMaxWidth(),
@@ -98,7 +90,7 @@ fun NewFeed(
 
 @Preview(
     showBackground = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
+//    uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 @Composable
 fun HomeScreenPreview() {

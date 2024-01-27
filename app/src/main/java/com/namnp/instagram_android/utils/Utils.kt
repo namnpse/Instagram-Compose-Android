@@ -4,6 +4,10 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.makeText
+import androidx.annotation.DrawableRes
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.res.painterResource
 
 class Utils {
     companion object {
@@ -17,3 +21,11 @@ class Utils {
         ) = makeText(context, message, LENGTH_LONG).show()
     }
 }
+
+@Composable
+fun previewPlaceholder(@DrawableRes debugPreview: Int) =
+    if (LocalInspectionMode.current) {
+        painterResource(id = debugPreview)
+    } else {
+        null
+    }
