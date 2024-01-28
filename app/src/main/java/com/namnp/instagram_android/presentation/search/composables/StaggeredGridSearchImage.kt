@@ -1,5 +1,6 @@
 package com.namnp.instagram_android.presentation.search.composables
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -16,12 +17,15 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.namnp.instagram_android.R
+import com.namnp.instagram_android.domain.model.SearchGallery
 import com.namnp.instagram_android.domain.repository.searchGallery
 import com.namnp.instagram_android.utils.previewPlaceholder
 import kotlin.random.Random
 
 @Composable
-fun StaggeredGridSearchImage() {
+fun StaggeredGridSearchImage(
+    onItemClick: (SearchGallery) -> Unit,
+) {
     LazyVerticalStaggeredGrid(
         modifier = Modifier
             .fillMaxSize()
@@ -48,7 +52,10 @@ fun StaggeredGridSearchImage() {
             AsyncImage(
                 modifier = Modifier
                     .height(height)
-                    .padding(bottom = 2.dp),
+                    .padding(bottom = 2.dp)
+                    .clickable {
+                        onItemClick(item)
+                    },
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(item.url)
                     .build(),
