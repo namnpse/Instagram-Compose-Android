@@ -26,7 +26,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.domain.repository.getRamdomImage
-import com.namnp.instagram_android.presentation.common.VerticalDivider
+import com.namnp.instagram_android.presentation.common.HorizontalDivider
 import com.namnp.instagram_android.presentation.ui.theme.textNormal15_20
 import com.namnp.instagram_android.presentation.ui.theme.textNormal_13
 import com.namnp.instagram_android.presentation.ui.theme.textSecondary
@@ -58,7 +58,7 @@ fun TodaySection(
         modifier = modifier
             .fillMaxWidth()
     ) {
-        VerticalDivider()
+        HorizontalDivider()
         Text(
             modifier = Modifier
                 .fillMaxWidth()

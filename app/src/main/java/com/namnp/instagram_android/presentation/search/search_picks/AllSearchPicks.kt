@@ -31,6 +31,7 @@ import coil.request.ImageRequest
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.domain.repository.searchGallery
 import com.namnp.instagram_android.presentation.common.AppBar
+import com.namnp.instagram_android.presentation.common.GridUserGallery
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
 import com.namnp.instagram_android.utils.previewPlaceholder
 
@@ -49,50 +50,7 @@ fun AllSearchPickScreen(
                 navController?.navigateUp()
             },
         )
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(3),
-            horizontalArrangement = Arrangement.spacedBy(2.dp),
-        ) {
-            val searchResult = searchGallery.shuffled()
-            items(searchResult) { item ->
-                val isMultipleImages = item.id % 4 == 1
-                val isVideo = item.id % 4 == 2
-                Box(
-                    modifier = Modifier
-                        .padding(bottom = 2.dp),
-                ) {
-                    AsyncImage(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .aspectRatio(1f)
-                        ,
-                        model = ImageRequest.Builder(LocalContext.current)
-                            .data(item.url)
-                            .build(),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        placeholder = previewPlaceholder(debugPreview = R.drawable.img_avatar1)
-                    )
-                    if (isMultipleImages) Image(
-                        modifier = Modifier
-                            .padding(8.dp)
-                            .align(Alignment.TopEnd)
-                            .size(17.dp),
-                        painter = painterResource(id = R.drawable.ic_multiple_images),
-                        contentDescription = null,
-                    )
-                    if (isVideo) Image(
-                        modifier = Modifier
-                            .padding(8.dp)
-                            .align(Alignment.TopEnd)
-                            .width(20.dp)
-                            .height(14.dp),
-                        painter = painterResource(id = R.drawable.ic_record),
-                        contentDescription = null,
-                    )
-                }
-            }
-        }
+        GridUserGallery()
     }
 }
 

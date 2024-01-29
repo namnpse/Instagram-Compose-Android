@@ -22,7 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.namnp.instagram_android.presentation.common.VerticalDivider
+import com.namnp.instagram_android.presentation.common.HorizontalDivider
 import com.namnp.instagram_android.presentation.favorite_screen.FollowingTab
 import com.namnp.instagram_android.presentation.favorite_screen.MineTab
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
@@ -42,7 +42,7 @@ fun TabBar() {
             containerColor = MaterialTheme.colorScheme.background,
             contentColor = MaterialTheme.colorScheme.onBackground,
             divider = {
-                VerticalDivider()
+                HorizontalDivider()
             },
             indicator = { tabPositions ->
                 Box(

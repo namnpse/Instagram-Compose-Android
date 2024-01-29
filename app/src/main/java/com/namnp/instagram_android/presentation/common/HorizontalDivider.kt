@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.namnp.instagram_android.presentation.ui.theme.*
 
 @Composable
-fun VerticalDivider(
+fun HorizontalDivider(
     modifier: Modifier = Modifier,
     thickness: Dp = 1.0.dp,
     color: Color = LightGrey,

@@ -30,7 +30,6 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.domain.repository.getRamdomImage
-import com.namnp.instagram_android.presentation.common.VerticalDivider
 import com.namnp.instagram_android.presentation.ui.theme.Black100
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
 import com.namnp.instagram_android.presentation.ui.theme.textNormal11

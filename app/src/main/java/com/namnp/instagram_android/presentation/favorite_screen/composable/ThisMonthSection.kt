@@ -8,14 +8,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.namnp.instagram_android.domain.repository.followers
-import com.namnp.instagram_android.presentation.common.VerticalDivider
+import com.namnp.instagram_android.presentation.common.HorizontalDivider
 import com.namnp.instagram_android.presentation.ui.theme.textNormal15_20
 
 @Composable
 fun ThisMonthSection(
     modifier: Modifier = Modifier
 ) {
-    VerticalDivider()
+    HorizontalDivider()
     Text(
         modifier = Modifier
             .fillMaxWidth()

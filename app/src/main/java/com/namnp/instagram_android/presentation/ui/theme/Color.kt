@@ -23,6 +23,7 @@ val Black100 = Color(0x66000000)
 val Black200 = Color(0xFF262626)
 val Black300 = Color(0xB2121212)
 val Black400 = Color(0x66000000)
+val Black500 = Color(0xFF48484A)
 val Grey900 = Color(0x26FFFFFF)
 val Grey800 = Color(0xFF8E8E93)
 val Grey700 = Color(0x2E3C3C43)
@@ -34,6 +35,7 @@ val Grey200 = Color(0x33000000)
 val Grey100 = Color(0xFFFAFAFA)
 val LightGrey = Color(0xFFEDEDED)
 val White400 = Color(0xFFF9F9F9)
+val White300 = Color(0xFFC7C7CC)
 
 
 @Composable
@@ -100,6 +102,10 @@ val ColorScheme.selectedTabBar
 val ColorScheme.unselectedTabBar
     @Composable
     get() = if (isLight) Black400 else Grey400
+
+val ColorScheme.profileBorder
+    @Composable
+    get() = if (isLight) White300 else Black500
 
 val ColorScheme.textFieldColor: TextFieldColors
     @Composable

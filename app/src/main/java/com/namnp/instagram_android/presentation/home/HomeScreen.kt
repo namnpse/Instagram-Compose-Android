@@ -19,7 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.domain.repository.userStories
 import com.namnp.instagram_android.presentation.MainViewModel
-import com.namnp.instagram_android.presentation.common.VerticalDivider
+import com.namnp.instagram_android.presentation.common.HorizontalDivider
 import com.namnp.instagram_android.presentation.home.component.HomeScreenHeader
 import com.namnp.instagram_android.presentation.home.component.NewFeedBody
 import com.namnp.instagram_android.presentation.home.component.NewFeedComments
@@ -38,7 +38,7 @@ fun HomeScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         HomeScreenHeader()
-        VerticalDivider(
+        HorizontalDivider(
             modifier = Modifier
                 .padding(vertical = 8.dp),
         )
@@ -50,7 +50,7 @@ fun HomeScreen(
                 Story(userStory = userStory)
             }
         }
-        VerticalDivider(
+        HorizontalDivider(
             modifier = Modifier
                 .padding(top = 8.dp),
         )

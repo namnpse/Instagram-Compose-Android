@@ -6,6 +6,7 @@ import com.namnp.instagram_android.R
 import com.namnp.instagram_android.domain.model.Follower
 import com.namnp.instagram_android.domain.model.SearchGallery
 import com.namnp.instagram_android.domain.model.SearchSuggestion
+import com.namnp.instagram_android.domain.model.Statistic
 import com.namnp.instagram_android.domain.model.User
 import kotlin.random.Random
 
@@ -109,13 +110,58 @@ val followers = listOf(
     )
 )
 
+val statistic = listOf(
+    Statistic(
+        type = "Posts",
+        number = 34,
+    ),
+    Statistic(
+        type = "Followers",
+        number = 1234,
+    ),
+    Statistic(
+        type = "Following",
+        number = 121,
+    ),
+)
+
+val myStories = listOf(
+    User(
+        name = "New",
+        avatar = R.drawable.img_avatar1,
+        isMine = true,
+    ),
+    User(
+        name = "Memories",
+        avatar = R.drawable.img_avatar2,
+        isLive = true,
+    ),
+    User(
+        name = "Family",
+        avatar = R.drawable.img_avatar3,
+        isLive = true,
+    ),
+    User(
+        name = "Friends",
+        avatar = R.drawable.img_avatar4,
+    ),
+    User(
+        name = "Trip",
+        avatar = R.drawable.img_avatar5,
+    ),
+    User(
+        name = "Sport",
+        avatar = R.drawable.img_avatar6,
+    ),
+)
+
 @DrawableRes
 fun getRamdomImage(): Int {
     val index = Random.nextInt(8)
     return userStories[index].avatar
 }
 
-fun getRamdomUser(): User {
-    val index = Random.nextInt(8)
+fun getRandomUser(): User {
+    val index = Random.nextInt(userStories.size)
     return userStories[index]
 }
