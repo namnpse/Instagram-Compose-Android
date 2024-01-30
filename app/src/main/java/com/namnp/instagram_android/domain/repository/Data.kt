@@ -3,10 +3,12 @@ package com.namnp.instagram_android.domain.repository
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.unit.dp
 import com.namnp.instagram_android.R
+import com.namnp.instagram_android.domain.model.DirectMessage
 import com.namnp.instagram_android.domain.model.Follower
 import com.namnp.instagram_android.domain.model.SearchGallery
 import com.namnp.instagram_android.domain.model.SearchSuggestion
 import com.namnp.instagram_android.domain.model.Statistic
+import com.namnp.instagram_android.domain.model.StoryStatus
 import com.namnp.instagram_android.domain.model.User
 import kotlin.random.Random
 
@@ -154,6 +156,40 @@ val myStories = listOf(
         avatar = R.drawable.img_avatar6,
     ),
 )
+
+val messages = listOf(
+    "Have a nice day, bro!",
+    "I heard this is a good movie, what do you think?",
+    "See you on the next meeting!",
+    "Sounds good \uD83D\uDE02\uD83D\uDE02\uD83D\uDE02",
+    "The new design looks cool, by the way",
+    "Thanks, bro",
+    "Yep, I'm going travel to Tokyo",
+    "Instagram is pretty good!"
+)
+
+val times = listOf(
+    "now",
+    "now",
+    "15m",
+    "20m",
+    "2h",
+    "4h",
+    "5h",
+    "1d"
+)
+
+val directMessages = (0..20).map {
+    val index = Random.nextInt(8)
+    DirectMessage(
+        id = it,
+        user = userStories[it % 7 + 1],
+        lastMessage = messages[index],
+        time = times[it % 8],
+        isRead = index % 3 == 0,
+        storyStatus = StoryStatus.entries[index % 3]
+    )
+}
 
 @DrawableRes
 fun getRamdomImage(): Int {
