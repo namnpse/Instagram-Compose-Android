@@ -24,6 +24,7 @@ val Black200 = Color(0xFF262626)
 val Black300 = Color(0xB2121212)
 val Black400 = Color(0x66000000)
 val Black500 = Color(0xFF48484A)
+val Black600 = Color(0xFF121212)
 val Grey900 = Color(0x26FFFFFF)
 val Grey800 = Color(0xFF8E8E93)
 val Grey700 = Color(0x2E3C3C43)
@@ -107,14 +108,18 @@ val ColorScheme.profileBorder
     @Composable
     get() = if (isLight) White300 else Black500
 
+val ColorScheme.backgroundSecondary
+    @Composable
+    get() = if (isLight) Grey100 else Black600
+
 val ColorScheme.textFieldColor: TextFieldColors
     @Composable
     get() = TextFieldDefaults.colors(
         focusedTextColor = MaterialTheme.colorScheme.textPrimary,
         unfocusedTextColor = MaterialTheme.colorScheme.textPrimary,
         disabledTextColor = Color.Transparent,
-        focusedContainerColor = if (isLight) Grey100 else Color(0xFF121212),
-        unfocusedContainerColor = if (isLight) Grey100 else Color(0xFF121212),
+        focusedContainerColor = backgroundSecondary,
+        unfocusedContainerColor = backgroundSecondary,
         focusedIndicatorColor = Color.Transparent,
         unfocusedIndicatorColor = Color.Transparent,
         disabledIndicatorColor = Color.Transparent,
