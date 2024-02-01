@@ -47,6 +47,7 @@ import com.namnp.instagram_android.presentation.home.HomeScreen
 import com.namnp.instagram_android.presentation.navigation.Screen
 import com.namnp.instagram_android.presentation.profile.ProfileScreen
 import com.namnp.instagram_android.presentation.search.SearchScreen
+import com.namnp.instagram_android.presentation.search.search_picks.AllSearchPickScreen
 import com.namnp.instagram_android.presentation.ui.theme.Grey200
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarIndicatorColor
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarSelectedIconColor
@@ -128,7 +129,7 @@ fun Navigation(
         }
         composable(route = Screen.SearchScreen.route) {
             SearchScreen(
-//                navController = navController,
+                navController = navController,
 //                mainViewModel = mainViewModel,
             )
         }
@@ -148,6 +149,12 @@ fun Navigation(
             ProfileScreen(
 //                navController = navController,
 //                mainViewModel = mainViewModel,
+            )
+        }
+
+        composable(route = Screen.SearchPicksScreen.route) {
+            AllSearchPickScreen(
+                navController = navController,
             )
         }
     }
@@ -196,8 +203,10 @@ fun BottomNavigationBar(
                     NavigationBarItem(
                         selected = selected,
                         onClick = {
-                            selectedItemIndex = index
-                            onItemClick(item)
+                            if(index != selectedItemIndex){
+                                selectedItemIndex = index
+                                onItemClick(item)
+                            }
                         },
                         alwaysShowLabel = false,
                         colors = NavigationBarItemDefaults.colors(

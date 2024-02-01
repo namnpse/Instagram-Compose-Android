@@ -1,18 +1,48 @@
 package com.namnp.instagram_android.presentation.search
 
+import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import com.namnp.instagram_android.presentation.navigation.Screen
+import com.namnp.instagram_android.presentation.search.composables.SearchHeader
+import com.namnp.instagram_android.presentation.search.composables.SearchSuggestionCompose
+import com.namnp.instagram_android.presentation.search.composables.StaggeredGridSearchImage
+import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
 
 @Composable
-fun SearchScreen() {
+fun SearchScreen(
+    navController: NavHostController? = null,
+) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .background(color = MaterialTheme.colorScheme.background)
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Search")
+        SearchHeader()
+        SearchSuggestionCompose()
+        StaggeredGridSearchImage(
+            onItemClick = {
+                navController?.navigate(Screen.SearchPicksScreen.route)
+            }
+        )
+    }
+}
+
+@Preview(
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+)
+@Composable
+fun SearchScreenPreview() {
+    InstagramComposeAndroidTheme {
+        SearchScreen()
     }
 }

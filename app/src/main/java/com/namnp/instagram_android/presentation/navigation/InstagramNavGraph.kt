@@ -28,7 +28,6 @@ fun InstagramNavGraph(
         composable(route = Screen.LoginScreen.route) {
             LoginScreen(
                 navController = navController,
-                mainViewModel = mainViewModel,
             )
         }
         composable(route = Screen.MainApp.route) {

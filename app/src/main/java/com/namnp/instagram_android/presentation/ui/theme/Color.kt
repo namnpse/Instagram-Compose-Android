@@ -19,14 +19,24 @@ val Pink40 = Color(0xFF7D5260)
 
 val Blue200 = Color(0xFF3797EF)
 val Blue300 = Color(0xFF3897F0)
+val Black100 = Color(0x66000000)
 val Black200 = Color(0xFF262626)
 val Black300 = Color(0xB2121212)
 val Black400 = Color(0x66000000)
+val Black500 = Color(0xFF48484A)
+val Black600 = Color(0xFF121212)
+val Grey900 = Color(0x26FFFFFF)
+val Grey800 = Color(0xFF8E8E93)
+val Grey700 = Color(0x2E3C3C43)
+val Grey600 = Color(0x1F767680)
+val Grey500 = Color(0x993C3C43)
 val Grey400 = Color(0x99FFFFFF)
 val Grey300 = Color(0x4A3C3C43)
 val Grey200 = Color(0x33000000)
 val Grey100 = Color(0xFFFAFAFA)
+val LightGrey = Color(0xFFEDEDED)
 val White400 = Color(0xFFF9F9F9)
+val White300 = Color(0xFFC7C7CC)
 
 
 @Composable
@@ -78,14 +88,38 @@ val ColorScheme.unselectedDotIndicatorColor
     @Composable
     get() = if (isLight) Grey300.copy(alpha = 0.2f) else Grey300.copy(alpha = 1f)
 
+val ColorScheme.primarySearchColor
+    @Composable
+    get() = if (isLight) Grey500 else Grey800
+
+val ColorScheme.borderColor
+    @Composable
+    get() = if (isLight) Grey700 else Grey900
+
+val ColorScheme.selectedTabBar
+    @Composable
+    get() = if (isLight) Black200 else White400
+
+val ColorScheme.unselectedTabBar
+    @Composable
+    get() = if (isLight) Black400 else Grey400
+
+val ColorScheme.profileBorder
+    @Composable
+    get() = if (isLight) White300 else Black500
+
+val ColorScheme.backgroundSecondary
+    @Composable
+    get() = if (isLight) Grey100 else Black600
+
 val ColorScheme.textFieldColor: TextFieldColors
     @Composable
     get() = TextFieldDefaults.colors(
         focusedTextColor = MaterialTheme.colorScheme.textPrimary,
         unfocusedTextColor = MaterialTheme.colorScheme.textPrimary,
         disabledTextColor = Color.Transparent,
-        focusedContainerColor = if (isLight) Grey100 else Color(0xFF121212),
-        unfocusedContainerColor = if (isLight) Grey100 else Color(0xFF121212),
+        focusedContainerColor = backgroundSecondary,
+        unfocusedContainerColor = backgroundSecondary,
         focusedIndicatorColor = Color.Transparent,
         unfocusedIndicatorColor = Color.Transparent,
         disabledIndicatorColor = Color.Transparent,

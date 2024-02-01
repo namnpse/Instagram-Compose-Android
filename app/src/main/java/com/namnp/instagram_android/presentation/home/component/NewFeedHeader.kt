@@ -20,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.namnp.instagram_android.R
-import com.namnp.instagram_android.presentation.ui.theme.Black200
 import com.namnp.instagram_android.presentation.ui.theme.colorPrimary
 import com.namnp.instagram_android.presentation.ui.theme.textNormal_13
 import com.namnp.instagram_android.presentation.ui.theme.textPrimary

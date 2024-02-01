@@ -45,6 +45,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.presentation.MainViewModel
+import com.namnp.instagram_android.presentation.common.AppBar
 import com.namnp.instagram_android.presentation.login.composables.InputAccount
 import com.namnp.instagram_android.presentation.login.composables.SignupSuggestion
 import com.namnp.instagram_android.presentation.navigation.Screen
@@ -60,13 +61,11 @@ import com.namnp.instagram_android.utils.Theme
 
 @Composable
 fun LoginScreen(
-    mainViewModel: MainViewModel = hiltViewModel(),
     navController: NavHostController? = null,
 ) {
     var showPassword by remember { mutableStateOf(false) }
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    val themeState by mainViewModel.themeState.collectAsState()
     var loginEnabled by remember { mutableStateOf(false) }
     LaunchedEffect(key1 = username, key2 = password) {
         loginEnabled = username.isNotEmpty() && password.isNotEmpty()
@@ -77,7 +76,7 @@ fun LoginScreen(
             .background(color = MaterialTheme.colorScheme.background),
         verticalArrangement = Arrangement.SpaceBetween,
     ) {
-        Icon(
+        /*Icon(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
                 .clickable {
@@ -86,21 +85,17 @@ fun LoginScreen(
             imageVector = Icons.Filled.ArrowBackIos,
             contentDescription = null,
             tint = MaterialTheme.colorScheme.colorPrimary
+        )*/
+        AppBar(
+            onClick = {
+                navController?.navigateUp()
+            }
         )
         Column(
             modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Switch(
-                checked = themeState.theme == Theme.Dark,
-                colors = SwitchDefaults.colors(
-                    checkedThumbColor = Blue200,
-                ),
-                onCheckedChange = { _ ->
-                    mainViewModel.toggleDarkMode()
-                }
-            )
             Image(
                 painter = painterResource(id = R.drawable.ic_instagram_logo),
                 contentDescription = null,

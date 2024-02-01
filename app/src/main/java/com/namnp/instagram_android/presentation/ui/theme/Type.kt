@@ -68,3 +68,22 @@ val textNormal_13
         textAlign = TextAlign.Center,
         letterSpacing = 0.5.sp
     )
+
+val textNormal15_20
+    @Composable
+    get() = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+        lineHeight = 20.sp,
+        color = MaterialTheme.colorScheme.textPrimary,
+    )
+
+val textNormal11
+    @Composable
+    get() = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 11.sp,
+        color = MaterialTheme.colorScheme.textPrimary,
+    )
