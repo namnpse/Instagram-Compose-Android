@@ -44,6 +44,7 @@ import com.namnp.instagram_android.presentation.MainViewModel
 import com.namnp.instagram_android.presentation.add.AddScreen
 import com.namnp.instagram_android.presentation.favorite_screen.FavoriteScreen
 import com.namnp.instagram_android.presentation.home.HomeScreen
+import com.namnp.instagram_android.presentation.home.story.StoryScreen
 import com.namnp.instagram_android.presentation.navigation.Screen
 import com.namnp.instagram_android.presentation.profile.ProfileScreen
 import com.namnp.instagram_android.presentation.search.SearchScreen
@@ -123,8 +124,8 @@ fun Navigation(
     ) {
         composable(route = Screen.HomeScreen.route) {
             HomeScreen(
-//                navController = navController,
-//                mainViewModel = mainViewModel,
+                navController = navController,
+                mainViewModel = mainViewModel,
             )
         }
         composable(route = Screen.SearchScreen.route) {
@@ -151,10 +152,15 @@ fun Navigation(
 //                mainViewModel = mainViewModel,
             )
         }
-
         composable(route = Screen.SearchPicksScreen.route) {
             AllSearchPickScreen(
                 navController = navController,
+            )
+        }
+        composable(route = Screen.StoryScreen.route) {
+            StoryScreen(
+                navController = navController,
+//                mainViewModel = mainViewModel,
             )
         }
     }

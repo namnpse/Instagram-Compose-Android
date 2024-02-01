@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import com.namnp.instagram_android.R
 import com.namnp.instagram_android.domain.repository.userStories
 import com.namnp.instagram_android.presentation.MainViewModel
@@ -25,11 +26,13 @@ import com.namnp.instagram_android.presentation.home.component.NewFeedBody
 import com.namnp.instagram_android.presentation.home.component.NewFeedComments
 import com.namnp.instagram_android.presentation.home.component.NewFeedHeader
 import com.namnp.instagram_android.presentation.home.component.Story
+import com.namnp.instagram_android.presentation.navigation.Screen
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
 
 @Composable
 fun HomeScreen(
     mainViewModel: MainViewModel = hiltViewModel(),
+    navController: NavHostController? = null,
 ) {
     Column(
         modifier = Modifier
@@ -47,7 +50,12 @@ fun HomeScreen(
                 .fillMaxWidth(),
         ) {
             items(userStories) { userStory ->
-                Story(userStory = userStory)
+                Story(
+                    userStory = userStory,
+                    onViewStory = {
+                        navController?.navigate(Screen.StoryScreen.route)
+                    }
+                )
             }
         }
         HorizontalDivider(

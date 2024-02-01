@@ -3,6 +3,7 @@ package com.namnp.instagram_android.presentation.home.component
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -31,13 +32,16 @@ import com.namnp.instagram_android.presentation.ui.theme.textPrimary
 fun Story(
     modifier: Modifier = Modifier,
     userStory: User,
+    onViewStory: (() -> Unit)? = null,
 ) {
     Column(
         modifier = modifier
             .padding(horizontal = 10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Box {
+        Box(
+            Modifier.clickable { onViewStory?.invoke() }
+        ) {
             Box(
                 modifier = Modifier
                     .size(60.dp)
