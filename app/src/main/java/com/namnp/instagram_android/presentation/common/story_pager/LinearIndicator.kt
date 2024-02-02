@@ -31,7 +31,7 @@ fun LinearIndicator(
     }
 
     var progress by remember {
-        mutableStateOf(0.00f)
+        mutableFloatStateOf(0.00f)
     }
 
     val animatedProgress by animateFloatAsState(
@@ -47,7 +47,8 @@ fun LinearIndicator(
                 delay(delayInMillis)
             }
 
-            //When the timer is not paused and animation completes then move to next page.
+            // If the timer is not paused and animation completes
+            // then move to next page.
             if (onPauseTimer.not()) {
                 delay(200)
                 onAnimationEnd()

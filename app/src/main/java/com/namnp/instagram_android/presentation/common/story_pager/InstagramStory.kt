@@ -67,6 +67,18 @@ fun InstagramStory(
                 if (touchToPause)
                     pauseTimer = it
             },
+            onNext = {
+                if (pagerState.currentPage == numberOfPages - 1) {
+                    onComplete()
+                } else {
+                    coroutineScope.launch {
+                        pagerState.scrollToPage(pagerState.currentPage + 1)
+                    }
+                    if (touchToPause)
+                        pauseTimer = it
+                }
+
+            },
             content = content,
         )
 
