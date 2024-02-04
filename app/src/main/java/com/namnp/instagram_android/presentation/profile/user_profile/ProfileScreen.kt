@@ -9,7 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import com.namnp.instagram_android.presentation.common.HorizontalDivider
+import com.namnp.instagram_android.presentation.navigation.Screen
 import com.namnp.instagram_android.presentation.profile.user_profile.composables.ProfileHeader
 import com.namnp.instagram_android.presentation.profile.user_profile.composables.ProfileInfo
 import com.namnp.instagram_android.presentation.profile.user_profile.composables.UserProfileStory
@@ -17,7 +19,9 @@ import com.namnp.instagram_android.presentation.profile.user_profile.composables
 import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroidTheme
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(
+    navController: NavHostController? = null,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -25,7 +29,11 @@ fun ProfileScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         ProfileHeader()
-        ProfileInfo()
+        ProfileInfo(
+            onClickEditProfile = {
+                navController?.navigate(Screen.EditProfileScreen.route)
+            }
+        )
         UserProfileStory()
         HorizontalDivider()
         UserProfileTabBar()

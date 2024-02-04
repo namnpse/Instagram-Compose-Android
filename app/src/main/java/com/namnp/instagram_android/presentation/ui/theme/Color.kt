@@ -112,6 +112,10 @@ val ColorScheme.backgroundSecondary
     @Composable
     get() = if (isLight) Grey100 else Black600
 
+val ColorScheme.dividerColor
+    @Composable
+    get() = if (isLight) LightGrey else Grey700
+
 val ColorScheme.textFieldColor: TextFieldColors
     @Composable
     get() = TextFieldDefaults.colors(

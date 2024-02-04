@@ -2,6 +2,7 @@ package com.namnp.instagram_android.presentation.common
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,7 +14,7 @@ import com.namnp.instagram_android.presentation.ui.theme.*
 fun HorizontalDivider(
     modifier: Modifier = Modifier,
     thickness: Dp = 1.0.dp,
-    color: Color = LightGrey,
+    color: Color = MaterialTheme.colorScheme.dividerColor,
 ) {
     Divider(
         modifier = modifier
