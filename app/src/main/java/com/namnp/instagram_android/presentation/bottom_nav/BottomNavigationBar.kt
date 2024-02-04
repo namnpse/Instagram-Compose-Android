@@ -44,9 +44,9 @@ import com.namnp.instagram_android.presentation.MainViewModel
 import com.namnp.instagram_android.presentation.add.AddScreen
 import com.namnp.instagram_android.presentation.favorite_screen.FavoriteScreen
 import com.namnp.instagram_android.presentation.home.HomeScreen
-import com.namnp.instagram_android.presentation.home.story.StoryScreen
+import com.namnp.instagram_android.presentation.story.StoryScreen
 import com.namnp.instagram_android.presentation.navigation.Screen
-import com.namnp.instagram_android.presentation.profile.ProfileScreen
+import com.namnp.instagram_android.presentation.profile.user_profile.ProfileScreen
 import com.namnp.instagram_android.presentation.search.SearchScreen
 import com.namnp.instagram_android.presentation.search.search_picks.AllSearchPickScreen
 import com.namnp.instagram_android.presentation.ui.theme.Grey200

@@ -1,4 +1,4 @@
-package com.namnp.instagram_android.presentation.home.story
+package com.namnp.instagram_android.presentation.story
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
