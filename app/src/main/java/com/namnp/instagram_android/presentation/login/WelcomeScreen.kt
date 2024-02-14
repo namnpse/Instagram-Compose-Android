@@ -35,6 +35,7 @@ import com.namnp.instagram_android.R
 import com.namnp.instagram_android.presentation.MainViewModel
 import com.namnp.instagram_android.presentation.login.composables.SignupSuggestion
 import com.namnp.instagram_android.presentation.navigation.Screen
+import com.namnp.instagram_android.presentation.ui.MainEvent
 import com.namnp.instagram_android.presentation.ui.spacing
 import com.namnp.instagram_android.presentation.ui.theme.Blue200
 import com.namnp.instagram_android.presentation.ui.theme.Grey300
@@ -43,14 +44,14 @@ import com.namnp.instagram_android.presentation.ui.theme.colorPrimary
 import com.namnp.instagram_android.presentation.ui.theme.text600_14
 import com.namnp.instagram_android.presentation.ui.theme.textPrimary
 import com.namnp.instagram_android.utils.Theme
+import com.namnp.instagram_android.utils.ThemeState
 
 @Composable
 fun WelcomeScreen(
-    mainViewModel: MainViewModel = hiltViewModel(),
     navController: NavHostController? = null,
+    themeState: ThemeState = ThemeState(theme = Theme.Light),
+    onEvent: (MainEvent) -> Unit,
 ) {
-    val themeState by mainViewModel.themeState.collectAsState()
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -64,7 +65,7 @@ fun WelcomeScreen(
                 checkedThumbColor = Blue200,
             ),
             onCheckedChange = { _ ->
-                mainViewModel.toggleDarkMode()
+                onEvent(MainEvent.OnToggleDarkTheme)
             }
         )
         Column(
@@ -139,6 +140,8 @@ fun WelcomeScreen(
 @Preview(showBackground = true)
 fun WelcomeScreenCompose() {
     InstagramComposeAndroidTheme {
-        WelcomeScreen()
+        WelcomeScreen {
+
+        }
     }
 }

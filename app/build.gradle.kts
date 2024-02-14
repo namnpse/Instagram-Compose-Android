@@ -87,6 +87,9 @@ dependencies {
     // DataStore Preferences
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+    // Compose with lifecycle
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
