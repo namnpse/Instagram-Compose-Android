@@ -17,10 +17,10 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.namnp.instagram_android.R
+import com.namnp.instagram_android.domain.model.Post
+import com.namnp.instagram_android.domain.model.PostUser
+import com.namnp.instagram_android.domain.repository.names
 import com.namnp.instagram_android.presentation.common.pager_indicator.DotsIndicator
-import com.namnp.instagram_android.presentation.ui.Post
-import com.namnp.instagram_android.presentation.ui.PostUser
-import com.namnp.instagram_android.presentation.ui.names
 import com.namnp.instagram_android.presentation.ui.theme.colorPrimary
 import com.namnp.instagram_android.presentation.ui.theme.unselectedDotIndicatorColor
 
@@ -38,9 +38,6 @@ fun NewFeedActions(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             AnimLikeButton(
-//                modifier = Modifier
-//                    .width(24.dp)
-//                    .height(21.dp),
                 post = Post(
                     id = 1,
                     image = "https://source.unsplash.com/random/400x300",
@@ -51,7 +48,7 @@ fun NewFeedActions(
                     ),
                     likesCount = 100,
                     commentsCount = 20,
-                    timeStamp = System.currentTimeMillis() - (60000)
+                    timeStamp = System.currentTimeMillis()
                 ),
                 onEvent = {},
             )
