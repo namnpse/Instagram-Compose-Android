@@ -213,3 +213,16 @@ fun getRandomUser(): User {
     val index = Random.nextInt(userStories.size)
     return userStories[index]
 }
+
+val names = arrayOf(
+    "storee",
+    "nianyc",
+    "opioke",
+    "ashoke",
+    "dark_emarlds",
+    "bedtan",
+    "shrish",
+    "matdo",
+    "phillsohn",
+    "deitch"
+)
