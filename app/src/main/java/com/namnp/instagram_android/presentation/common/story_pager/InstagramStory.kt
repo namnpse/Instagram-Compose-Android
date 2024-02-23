@@ -54,6 +54,10 @@ fun InstagramStory(
         mutableStateOf(false)
     }
 
+    var isCancelCurrentStory by remember {
+        mutableStateOf(false)
+    }
+
     var numberOfPages by remember {
         mutableIntStateOf(listImages.size)
     }
@@ -77,7 +81,7 @@ fun InstagramStory(
                     if (touchToPause)
                         pauseTimer = it
                 }
-
+                isCancelCurrentStory = true
             },
             content = content,
         )
@@ -106,8 +110,10 @@ fun InstagramStory(
             Spacer(modifier = Modifier.padding(spaceBetweenIndicator))
 
             ListOfIndicators(
-                numberOfPages,
                 indicatorModifier,
+                initialIndex = pagerState.currentPage,
+                isCancelCurrentStory = isCancelCurrentStory,
+                numberOfPages,
                 indicatorBackgroundColor,
                 indicatorProgressColor,
                 slideDurationInSeconds,
@@ -127,8 +133,10 @@ fun InstagramStory(
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 private fun RowScope.ListOfIndicators(
-    numberOfPages: Int,
     indicatorModifier: Modifier,
+    initialIndex: Int = 0,
+    isCancelCurrentStory: Boolean = false,
+    numberOfPages: Int,
     indicatorBackgroundColor: Color,
     indicatorProgressColor: Color,
     slideDurationInSeconds: Long,
@@ -140,13 +148,15 @@ private fun RowScope.ListOfIndicators(
     onEveryStoryChange: ((Int) -> Unit)? = null,
     onComplete: () -> Unit,
 ) {
+    println("initialIndex $initialIndex")
     var currentPage by remember {
-        mutableIntStateOf(0)
+        mutableIntStateOf(initialIndex)
     }
 
     for (index in 0 until numberOfPages) {
         LinearIndicator(
             modifier = indicatorModifier.weight(1f),
+            initialProgress = if(isCancelCurrentStory) 1f else 0.00f,
             index == currentPage,
             indicatorBackgroundColor,
             indicatorProgressColor,

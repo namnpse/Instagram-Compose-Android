@@ -28,6 +28,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -54,15 +55,24 @@ import com.namnp.instagram_android.presentation.ui.theme.Grey200
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarIndicatorColor
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarSelectedIconColor
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarUnselectedIconColor
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun MainApp(
     mainViewModel: MainViewModel = hiltViewModel(),
 ) {
     val navController = rememberNavController()
+    // Subscribe to navBackStackEntry, required to get current route
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val bottomBarState = rememberSaveable { (mutableStateOf(true)) }
+    when (navBackStackEntry?.destination?.route) {
+        Screen.StoryScreen.route -> {
+            bottomBarState.value = false
+        }
+        else -> bottomBarState.value = true
+    }
     Scaffold(
         bottomBar = {
-            BottomNavigationBar(
+            if(bottomBarState.value) BottomNavigationBar(
                 items = listOf(
                     BottomNavItem(
                         title = "Home",

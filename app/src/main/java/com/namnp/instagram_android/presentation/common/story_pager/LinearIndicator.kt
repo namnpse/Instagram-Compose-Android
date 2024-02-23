@@ -17,6 +17,7 @@ import kotlinx.coroutines.isActive
 @Composable
 fun LinearIndicator(
     modifier: Modifier,
+    initialProgress: Float = 0.00f,
     startProgress: Boolean = false,
     indicatorBackgroundColor: Color,
     indicatorProgressColor: Color,
@@ -31,7 +32,7 @@ fun LinearIndicator(
     }
 
     var progress by remember {
-        mutableFloatStateOf(0.00f)
+        mutableFloatStateOf(initialProgress)
     }
 
     val animatedProgress by animateFloatAsState(
