@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.namnp.instagram_android.R
+import com.namnp.instagram_android.presentation.ui.theme.Blue300
 import com.namnp.instagram_android.presentation.ui.theme.backgroundSecondary
 import com.namnp.instagram_android.presentation.ui.theme.textNormal_13
 
@@ -42,7 +43,7 @@ fun DirectMessagesFooter(
         Text(
             text = "Camera",
             style = textNormal_13.copy(
-                color = Color(0xFF3897F0),
+                color = Blue300,
             )
         )
     }

@@ -1,4 +1,4 @@
-package com.namnp.instagram_android.presentation.profile.composables
+package com.namnp.instagram_android.presentation.profile.user_profile.composables
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text

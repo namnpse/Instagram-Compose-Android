@@ -1,8 +1,9 @@
-package com.namnp.instagram_android.presentation.profile.composables
+package com.namnp.instagram_android.presentation.profile.user_profile.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,6 +30,7 @@ import com.namnp.instagram_android.presentation.ui.theme.textPrimary
 @Composable
 fun ProfileInfo(
     modifier: Modifier = Modifier,
+    onClickEditProfile: () -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -72,7 +74,10 @@ fun ProfileInfo(
                 .padding(1.dp)
                 .clip(RoundedCornerShape(6.dp))
                 .background(MaterialTheme.colorScheme.background)
-                .padding(vertical = 6.dp),
+                .padding(vertical = 6.dp)
+                .clickable {
+                    onClickEditProfile()
+                },
             text = "Edit Profile",
             style = text600_14.copy(
                 color = MaterialTheme.colorScheme.textPrimary,

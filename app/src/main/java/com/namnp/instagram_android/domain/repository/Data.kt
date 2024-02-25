@@ -191,6 +191,18 @@ val directMessages = (0..20).map {
     )
 }
 
+val publicUserInfo = mapOf(
+    "Name" to "Nguyen Bryan",
+    "Username" to "namnpse_jr",
+    "Website" to "https://namnpse.dev",
+    "Bio" to "I'm an enthusiastic mobile developer who loves building great apps.",
+)
+val privateUserInfo = mapOf(
+    "Email" to "namnpse@gmail.com",
+    "Phone" to "+84372293847",
+    "Gender" to "Male",
+)
+
 @DrawableRes
 fun getRamdomImage(): Int {
     val index = Random.nextInt(8)
@@ -201,3 +213,16 @@ fun getRandomUser(): User {
     val index = Random.nextInt(userStories.size)
     return userStories[index]
 }
+
+val names = arrayOf(
+    "storee",
+    "nianyc",
+    "opioke",
+    "ashoke",
+    "dark_emarlds",
+    "bedtan",
+    "shrish",
+    "matdo",
+    "phillsohn",
+    "deitch"
+)

@@ -1,6 +1,8 @@
 package com.namnp.instagram_android.presentation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -15,6 +17,8 @@ fun InstagramNavGraph(
     mainViewModel: MainViewModel = hiltViewModel(),
     navController: NavHostController,
 ) {
+    // replace collectAsState by collectAsStateWithLifecycle
+    val themeState by mainViewModel.themeState.collectAsStateWithLifecycle()
     NavHost(
         navController = navController,
         startDestination = Screen.MainApp.route,
@@ -22,8 +26,10 @@ fun InstagramNavGraph(
         composable(route = Screen.WelcomeScreen.route) {
             WelcomeScreen(
                 navController = navController,
-                mainViewModel = mainViewModel,
-            )
+                themeState = themeState,
+            ) { event ->
+                mainViewModel.onEvent(event)
+            }
         }
         composable(route = Screen.LoginScreen.route) {
             LoginScreen(

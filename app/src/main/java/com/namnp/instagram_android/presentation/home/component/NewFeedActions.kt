@@ -4,6 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -15,6 +17,9 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.namnp.instagram_android.R
+import com.namnp.instagram_android.domain.model.Post
+import com.namnp.instagram_android.domain.model.PostUser
+import com.namnp.instagram_android.domain.repository.names
 import com.namnp.instagram_android.presentation.common.pager_indicator.DotsIndicator
 import com.namnp.instagram_android.presentation.ui.theme.colorPrimary
 import com.namnp.instagram_android.presentation.ui.theme.unselectedDotIndicatorColor
@@ -32,13 +37,20 @@ fun NewFeedActions(
         Row(
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Image(
-                modifier = Modifier
-                    .width(24.dp)
-                    .height(21.dp),
-                painter = painterResource(id = R.drawable.ic_like),
-                contentDescription = null,
-                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.colorPrimary)
+            AnimLikeButton(
+                post = Post(
+                    id = 1,
+                    image = "https://source.unsplash.com/random/400x300",
+                    user = PostUser(
+                        name = names.first(),
+                        username = names.last(),
+                        image = "https://randomuser.me/api/portraits/men/1.jpg"
+                    ),
+                    likesCount = 100,
+                    commentsCount = 20,
+                    timeStamp = System.currentTimeMillis()
+                ),
+                onEvent = {},
             )
             Image(
                 modifier = Modifier

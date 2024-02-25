@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.namnp.instagram_android.constant.Constants
 import com.namnp.instagram_android.domain.use_case.UseCases
+import com.namnp.instagram_android.presentation.ui.MainEvent
 import com.namnp.instagram_android.utils.Theme
 import com.namnp.instagram_android.utils.ThemeState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -29,7 +30,7 @@ constructor(
         getThemeState()
     }
 
-    fun toggleDarkMode() {
+    private fun toggleDarkMode() {
 //        _themeState.value.toggleDarkMode()
         _themeState.value =
             _themeState.value.copy(
@@ -55,6 +56,15 @@ constructor(
                 key = Constants.PREFERENCES_KEY_DARK_THEME,
                 value = isDarkTheme.toString()
             )
+        }
+    }
+
+    fun onEvent(event: MainEvent) {
+        when(event) {
+            MainEvent.OnToggleDarkTheme -> {
+                toggleDarkMode()
+            }
+            else -> {}
         }
     }
 }

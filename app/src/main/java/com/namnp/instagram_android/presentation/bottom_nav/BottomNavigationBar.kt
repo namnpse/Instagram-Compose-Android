@@ -28,6 +28,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -44,23 +45,34 @@ import com.namnp.instagram_android.presentation.MainViewModel
 import com.namnp.instagram_android.presentation.add.AddScreen
 import com.namnp.instagram_android.presentation.favorite_screen.FavoriteScreen
 import com.namnp.instagram_android.presentation.home.HomeScreen
+import com.namnp.instagram_android.presentation.story.StoryScreen
 import com.namnp.instagram_android.presentation.navigation.Screen
-import com.namnp.instagram_android.presentation.profile.ProfileScreen
+import com.namnp.instagram_android.presentation.profile.edit_profile.EditProfileScreen
+import com.namnp.instagram_android.presentation.profile.user_profile.ProfileScreen
 import com.namnp.instagram_android.presentation.search.SearchScreen
 import com.namnp.instagram_android.presentation.search.search_picks.AllSearchPickScreen
 import com.namnp.instagram_android.presentation.ui.theme.Grey200
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarIndicatorColor
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarSelectedIconColor
 import com.namnp.instagram_android.presentation.ui.theme.bottomBarUnselectedIconColor
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun MainApp(
     mainViewModel: MainViewModel = hiltViewModel(),
 ) {
     val navController = rememberNavController()
+    // Subscribe to navBackStackEntry, required to get current route
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val bottomBarState = rememberSaveable { (mutableStateOf(true)) }
+    when (navBackStackEntry?.destination?.route) {
+        Screen.StoryScreen.route -> {
+            bottomBarState.value = false
+        }
+        else -> bottomBarState.value = true
+    }
     Scaffold(
         bottomBar = {
-            BottomNavigationBar(
+            if(bottomBarState.value) BottomNavigationBar(
                 items = listOf(
                     BottomNavItem(
                         title = "Home",
@@ -123,8 +135,8 @@ fun Navigation(
     ) {
         composable(route = Screen.HomeScreen.route) {
             HomeScreen(
-//                navController = navController,
-//                mainViewModel = mainViewModel,
+                navController = navController,
+                mainViewModel = mainViewModel,
             )
         }
         composable(route = Screen.SearchScreen.route) {
@@ -147,14 +159,25 @@ fun Navigation(
         }
         composable(route = Screen.ProfileScreen.route) {
             ProfileScreen(
-//                navController = navController,
+                navController = navController,
 //                mainViewModel = mainViewModel,
             )
         }
-
         composable(route = Screen.SearchPicksScreen.route) {
             AllSearchPickScreen(
                 navController = navController,
+            )
+        }
+        composable(route = Screen.StoryScreen.route) {
+            StoryScreen(
+                navController = navController,
+//                mainViewModel = mainViewModel,
+            )
+        }
+        composable(route = Screen.EditProfileScreen.route) {
+            EditProfileScreen(
+                navController = navController,
+//                mainViewModel = mainViewModel,
             )
         }
     }
