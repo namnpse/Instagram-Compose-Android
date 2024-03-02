@@ -1,11 +1,12 @@
 package com.namnp.instagram_android.presentation.bottom_nav
 
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.annotation.DrawableRes
 
 data class BottomNavItem(
     val title: String,
     val route: String,
-    val icon: ImageVector,
+    @DrawableRes val icon: Int,
+    @DrawableRes val selectedIcon: Int,
     val badgeCount: Int = 0,
     val showDot: Boolean = false,
 )

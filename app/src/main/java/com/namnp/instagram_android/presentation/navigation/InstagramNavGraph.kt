@@ -8,9 +8,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.namnp.instagram_android.presentation.MainViewModel
-import com.namnp.instagram_android.presentation.bottom_nav.MainApp
 import com.namnp.instagram_android.presentation.login.LoginScreen
 import com.namnp.instagram_android.presentation.login.WelcomeScreen
+import com.namnp.instagram_android.presentation.main.MainScreen
 
 @Composable
 fun InstagramNavGraph(
@@ -37,7 +37,7 @@ fun InstagramNavGraph(
             )
         }
         composable(route = Screen.MainApp.route) {
-            MainApp(
+            MainScreen(
                 mainViewModel = mainViewModel,
             )
         }

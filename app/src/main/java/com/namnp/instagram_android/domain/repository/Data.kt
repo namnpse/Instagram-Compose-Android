@@ -10,7 +10,47 @@ import com.namnp.instagram_android.domain.model.SearchSuggestion
 import com.namnp.instagram_android.domain.model.Statistic
 import com.namnp.instagram_android.domain.model.StoryStatus
 import com.namnp.instagram_android.domain.model.User
+import com.namnp.instagram_android.presentation.bottom_nav.BottomNavItem
+import com.namnp.instagram_android.presentation.navigation.Screen
 import kotlin.random.Random
+
+
+val bottomNavItems = listOf(
+    BottomNavItem(
+        title = "Home",
+        route = Screen.HomeScreen.route,
+        icon = R.drawable.ic_outlined_home,
+        selectedIcon = R.drawable.ic_filled_home
+    ),
+    BottomNavItem(
+        title = "Search",
+        route = Screen.SearchScreen.route,
+        icon = R.drawable.ic_outlined_search,
+        selectedIcon = R.drawable.ic_filled_search
+//                        showDot = true,
+//                        badgeCount = 23
+    ),
+    BottomNavItem(
+        title = "Add",
+        route = Screen.AddScreen.route,
+        icon = R.drawable.ic_outlined_add,
+        selectedIcon = R.drawable.ic_outlined_add
+//                        badgeCount = 214,
+    ),
+    BottomNavItem(
+        title = "Favorite",
+        route = Screen.FavoriteScreen.route,
+        icon = R.drawable.ic_outlined_favorite,
+        selectedIcon = R.drawable.ic_filled_favorite
+//                        badgeCount = 23
+    ),
+    BottomNavItem(
+        title = "Profile",
+        route = Screen.ProfileScreen.route,
+        icon = R.drawable.ic_outlined_add,
+        selectedIcon = R.drawable.ic_outlined_add
+    ),
+)
 
 val userStories = listOf(
     User(

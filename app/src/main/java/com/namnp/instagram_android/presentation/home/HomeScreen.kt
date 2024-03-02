@@ -31,7 +31,6 @@ import com.namnp.instagram_android.presentation.ui.theme.InstagramComposeAndroid
 
 @Composable
 fun HomeScreen(
-    mainViewModel: MainViewModel = hiltViewModel(),
     navController: NavHostController? = null,
 ) {
     Column(

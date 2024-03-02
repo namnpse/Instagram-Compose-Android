@@ -4,9 +4,7 @@ import com.namnp.instagram_android.domain.repository.DataStoreOperations
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class Repository
-@Inject
-constructor(
+class Repository @Inject constructor(
     private val dataStore: DataStoreOperations
 ) {
 
